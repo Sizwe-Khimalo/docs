@@ -1,0 +1,16 @@
+def player(prev_play, opponent_history=None):
+    if opponent_history is None:
+        opponent_history = []  # Initialize the opponent history as an empty list if not provided
+
+    # Add the previous move to the opponent history
+    opponent_history.append(prev_play)
+
+    # Simple strategy: Play the move that beats the opponent's last move
+    if prev_play == 'R':
+        return 'P'  # Paper beats Rock
+    elif prev_play == 'P':
+        return 'S'  # Scissors beats Paper
+    elif prev_play == 'S':
+        return 'R'  # Rock beats Scissors
+    else:
+        return 'R'  # Default to Rock if it's the first round or invalid move
